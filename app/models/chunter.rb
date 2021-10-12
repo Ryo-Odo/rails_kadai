@@ -1,0 +1,2 @@
+class Chunter < ApplicationRecord
+end
