@@ -6,7 +6,8 @@
 <% @chunters.each do |chunter| %>
   <tr>
     <td><%= chunter.content %></td>
-    <td><%= link_to '編集する', chunter_path(chunter.id) %></td>
+    <!-- <td><%= link_to '編集する', chunter_path(chunter.id) %></td> -->
+    <td><%= link_to "つぶやきを編集する", edit_chunter_path(chunter.id) %></td>
   </tr>
 <% end %>
 </table>
