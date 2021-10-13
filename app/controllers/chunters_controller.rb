@@ -1,5 +1,5 @@
 class ChuntersController < ApplicationController
-  before_action :set_blog, only: [:edit, :update]
+  before_action :set_blog, only: [:edit, :update, :destroy]
   def index
     @chunters = Chunter.all
   end
@@ -18,15 +18,17 @@ class ChuntersController < ApplicationController
   #   @chunter = Chunter.find(params[:id])
   # end
   def edit
-    set_blog
   end
   def update
-    set_blog
     if @chunter.update(chunter_params)
       redirect_to chunters_path, notice: "つぶやきを編集しました！"
     else
       render :edit
     end
+  end
+  def destroy
+    @chunter.destroy
+    redirect_to chunters_path, notice:"つぶやきを削除しました！"
   end
   private
   def chunter_params
