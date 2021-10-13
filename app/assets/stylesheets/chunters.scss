@@ -1,3 +1,35 @@
 // Place all the styles related to the chunters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  text-align: center;
+}
+
+table {
+  margin: 0 auto;
+}
+
+header {
+  height: 50px;
+  background: #2B2B2B;
+  color: white;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  background: #283A4B;
+  width: 100%;
+}

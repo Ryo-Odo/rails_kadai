@@ -18,8 +18,6 @@ class ChuntersController < ApplicationController
       end
     end
   end
-
-
   # def show
   #   @chunter = Chunter.find(params[:id])
   # end
