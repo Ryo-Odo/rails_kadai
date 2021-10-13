@@ -6,8 +6,12 @@ class ChuntersController < ApplicationController
     @chunter = Chunter.new
   end
   def create
-    Chunter.create(chunter_params)
-    redirect_to new_chunter_path
+    @chunter = Chunter.create(chunter_params)
+    if @chunter.save
+      redirect_to new_chunter_path, notice: "つぶやきを投稿しました"
+    else
+      render :new
+    end
   end
   def show
     @chunter = Chunter.find(params[:id])
