@@ -8,12 +8,18 @@ class ChuntersController < ApplicationController
   end
   def create
     @chunter = Chunter.create(chunter_params)
-    if @chunter.save
-      redirect_to new_chunter_path, notice: "つぶやきを投稿しました"
-    else
+    if params[:back]
       render :new
+    else
+      if @chunter.save
+        redirect_to chunters_path, notice: "つぶやきを投稿しました"
+      else
+        render :new
+      end
     end
   end
+
+
   # def show
   #   @chunter = Chunter.find(params[:id])
   # end
@@ -21,14 +27,18 @@ class ChuntersController < ApplicationController
   end
   def update
     if @chunter.update(chunter_params)
-      redirect_to chunters_path, notice: "つぶやきを編集しました！"
+      redirect_to chunters_path, notice: "つぶやきを編集しました"
     else
       render :edit
     end
   end
   def destroy
     @chunter.destroy
-    redirect_to chunters_path, notice:"つぶやきを削除しました！"
+    redirect_to chunters_path, notice:"つぶやきを削除しました"
+  end
+  def confirm
+    @chunter = Chunter.new(chunter_params)
+    render :new if @chunter.invalid?
   end
   private
   def chunter_params
