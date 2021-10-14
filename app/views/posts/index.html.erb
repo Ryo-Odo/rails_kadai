@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<body>
+  <header>
+    <h1>Chunter</h1>
+  </header>
+  <h2>つぶやき一覧</h2>
+  <p><%= notice %></p>
+  <table>
+    <tr>
+      <th>内容</th>
+    </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.content %></td>
+      <!-- <td><%= link_to '一覧を表示する', post_path(post.id) %></td> -->
+      <td><%= link_to "つぶやきを編集する", edit_post_path(post.id), data: { confirm: '本当に編集していいですか？' } %></td>
+      <td><%= link_to 'つぶやきを削除する', post_path(post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+    </tr>
+  <% end %>
+  </table>
+  <%= link_to 'つぶやきを投稿する', new_post_path %>
+  <footer>
+    <div class="footer_p">
+      <p>運営会社DIVE INTO CODE株式会社</p>
+      <p>© 2015-2018 Copyright DIVE INTO CODE Corp.</p>
+    </div>
+  </footer>
+</body>
